@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Upload image</h2>
+<form method="post" action="@Url.Action("Upload")" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <input type="file" name="stream"/>
+    <hr />
+    <input value="Go!" type="submit" class="btn btn-primary"/>
+</form>
+
