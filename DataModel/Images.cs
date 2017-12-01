@@ -15,5 +15,6 @@ namespace DataModel
         public string ImageUri { get; set; }
         public string Name { get; set; }
         public string BaseColour { get; set; }
+        public string Caption { get; set; }
     }
 }

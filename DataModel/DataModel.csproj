@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeaturedItems.cs" />
     <Compile Include="Colours.cs" />
     <Compile Include="Images.cs" />
     <Compile Include="Material.cs" />
@@ -65,6 +66,18 @@
     <Compile Include="Migrations\201711300954423_imagesupport.cs" />
     <Compile Include="Migrations\201711300954423_imagesupport.Designer.cs">
       <DependentUpon>201711300954423_imagesupport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712010952183_image.cs" />
+    <Compile Include="Migrations\201712010952183_image.Designer.cs">
+      <DependentUpon>201712010952183_image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712011000160_FeaturedItem.cs" />
+    <Compile Include="Migrations\201712011000160_FeaturedItem.Designer.cs">
+      <DependentUpon>201712011000160_FeaturedItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712011009577_FeaturedItems.cs" />
+    <Compile Include="Migrations\201712011009577_FeaturedItems.Designer.cs">
+      <DependentUpon>201712011009577_FeaturedItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +100,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711300954423_imagesupport.resx">
       <DependentUpon>201711300954423_imagesupport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712010952183_image.resx">
+      <DependentUpon>201712010952183_image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712011000160_FeaturedItem.resx">
+      <DependentUpon>201712011000160_FeaturedItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712011009577_FeaturedItems.resx">
+      <DependentUpon>201712011009577_FeaturedItems.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -34,5 +34,10 @@ namespace kd_aspmvc.Controllers
             var images = _store.GetAllImages();
             return View(images);
         }
+        public JsonResult GetFeaturedItems()
+        {
+            var images = _store.GetFeaturedItems();
+            return Json(images, JsonRequestBehavior.AllowGet);
+        }
     }
 }

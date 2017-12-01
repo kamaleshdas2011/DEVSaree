@@ -59,5 +59,24 @@ namespace kd_aspmvc.AdminHelper
             }
             return uris;
         }
+        public List<Uri> GetFeaturedItems()
+        {
+            var sasPolicy = new SharedAccessBlobPolicy
+            {
+                Permissions = SharedAccessBlobPermissions.Read,
+                SharedAccessExpiryTime = DateTime.Now.AddMinutes(30),
+                SharedAccessStartTime = DateTime.Now.AddMinutes(-15)
+            };
+            var container = _client.GetContainerReference("images");
+            var blobs = container.ListBlobs().OfType<CloudBlockBlob>().Select(m => m.Name).ToList();
+            List<Uri> uris = new List<Uri>();
+            foreach (var blob in blobs)
+            {
+                var ablob = container.GetBlockBlobReference(blob);
+                var sasToken = ablob.GetSharedAccessSignature(sasPolicy);
+                uris.Add(new Uri(_baseuri, $"/images/{blob}{sasToken}"));
+            }
+            return uris;
+        }
     }
 }

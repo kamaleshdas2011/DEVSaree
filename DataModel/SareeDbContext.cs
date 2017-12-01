@@ -10,5 +10,7 @@ namespace DataModel
         }
         public DbSet<Sarees> SareeContext { get; set; }
         public DbSet<Images> ImageContext { get; set; }
+        public DbSet<FeaturedItems> FeaturedItems { get; set; }
+
     }
 }
