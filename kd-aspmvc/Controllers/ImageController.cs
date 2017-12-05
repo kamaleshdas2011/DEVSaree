@@ -29,10 +29,10 @@ namespace kd_aspmvc.Controllers
             var model = new Images { ImageUri = _store.UriFor(id).ToString() };
             return View(model);
         }
-        public ActionResult GetAllImages()
+        public JsonResult GetAllImages()
         {
             var images = _store.GetAllImages();
-            return View(images);
+            return Json(images, JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetFeaturedItems()
         {

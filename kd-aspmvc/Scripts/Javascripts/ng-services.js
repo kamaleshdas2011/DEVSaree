@@ -7,8 +7,15 @@
                     return response.data
                 });
         }
+        var getAllImages = function () {
+            return $http.get("/Image/GetAllImages")
+                .then(function (response) {
+                    return response.data
+                });
+        }
         return {
-            getFeaturedItems: getFeaturedItems
+            getFeaturedItems: getFeaturedItems,
+            getAllImages: getAllImages
         }
     }
 

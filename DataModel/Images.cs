@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,5 +17,7 @@ namespace DataModel
         public string Name { get; set; }
         public string BaseColour { get; set; }
         public string Caption { get; set; }
+        [NotMapped]
+        public Uri ImageLocation { get; set; }
     }
 }

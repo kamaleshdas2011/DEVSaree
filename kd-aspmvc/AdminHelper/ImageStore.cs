@@ -40,8 +40,16 @@ namespace kd_aspmvc.AdminHelper
             
             return new Uri(_baseuri, $"/images/{id}{sasToken}");
         }
-        public List<Uri> GetAllImages()
+        public List<Images> GetAllImages()
         {
+            List<Images> allImages = new List<Images>();
+            using (SareeDbContext db = new SareeDbContext())
+            {
+                allImages = db.ImageContext.ToList();
+                db.Configuration.AutoDetectChangesEnabled = false;
+            };
+                
+            
             var sasPolicy = new SharedAccessBlobPolicy
             {
                 Permissions = SharedAccessBlobPermissions.Read,
@@ -55,9 +63,12 @@ namespace kd_aspmvc.AdminHelper
             {
                 var ablob = container.GetBlockBlobReference(blob);
                 var sasToken = ablob.GetSharedAccessSignature(sasPolicy);
-                uris.Add(new Uri(_baseuri, $"/images/{blob}{sasToken}"));
+
+                (from img in allImages where img.ImageUri == blob select img).FirstOrDefault().ImageLocation= new Uri(_baseuri, $"/images/{blob}{sasToken}");
+                
+                //uris.Add(new Uri(_baseuri, $"/images/{blob}{sasToken}"));
             }
-            return uris;
+            return allImages;
         }
         public List<Uri> GetFeaturedItems()
         {

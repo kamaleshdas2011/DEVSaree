@@ -4,7 +4,9 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script src="~/Scripts/Javascripts/app.js"></script>
+<script src="~/Scripts/Javascripts/ng-services.js"></script>
+<script src="~/Scripts/Javascripts/ImageController.js"></script>
 <h2>Create</h2>
 
 
@@ -32,9 +34,23 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Image.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Select aan Image", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" ng-controller="ImageController">
-               {{message}}
+                <table>
+                    <tr>
+                        <td ng-repeat="img in allImages">
+                            <div ng-class="{'imgHoverBorder':$index == selectedImage}" class="figure" ng-mouseenter="changeColour($index, true)" ng-mouseleave="changeColour($index, false)">
+                                <p>
+                                    <img src="{{img.ImageLocation}}"
+                                         width="136" height="200"
+                                         alt="{{img.Caption}}">
+                                <p>
+                                    {{img.Caption}}
+                            </div>
+                            
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="form-group">

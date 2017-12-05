@@ -13,11 +13,9 @@
 <div class="row" ng-controller="ImageController">
     <div class="col-md-4">
         <h2>Blue blast</h2>
-        <p>
-            <div ng-repeat="img in images">
-                <img class="carousel-image" src="{{img}}"/>
-            </div>
-        </p>
+        <div ng-repeat="img in images">
+            <img class="carousel-image" src="{{img}}" />
+        </div>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">

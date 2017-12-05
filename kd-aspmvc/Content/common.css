@@ -1,4 +1,16 @@
-﻿.carousel-image{
-    width: 80%;
-    height:10%;
+﻿div.figure {
+    float: right;
+    width: auto;
+    text-align: center;
+    font-style: italic;
+    font-size: smaller;
+    text-indent: 0;
+    border: thin silver solid;
+    margin: 0.5em;
+    padding: 0.5em;
+    font-size: large;
+}
+.imgHoverBorder {
+    color: forestgreen;
+    background-color: darkgray;
 }
