@@ -51,33 +51,9 @@
     <Compile Include="Colours.cs" />
     <Compile Include="Images.cs" />
     <Compile Include="Material.cs" />
-    <Compile Include="Migrations\201711300627294_Initial.cs" />
-    <Compile Include="Migrations\201711300627294_Initial.Designer.cs">
-      <DependentUpon>201711300627294_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711300910012_AddImage.cs" />
-    <Compile Include="Migrations\201711300910012_AddImage.Designer.cs">
-      <DependentUpon>201711300910012_AddImage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711300921531_AddImage1.cs" />
-    <Compile Include="Migrations\201711300921531_AddImage1.Designer.cs">
-      <DependentUpon>201711300921531_AddImage1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711300954423_imagesupport.cs" />
-    <Compile Include="Migrations\201711300954423_imagesupport.Designer.cs">
-      <DependentUpon>201711300954423_imagesupport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712010952183_image.cs" />
-    <Compile Include="Migrations\201712010952183_image.Designer.cs">
-      <DependentUpon>201712010952183_image.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712011000160_FeaturedItem.cs" />
-    <Compile Include="Migrations\201712011000160_FeaturedItem.Designer.cs">
-      <DependentUpon>201712011000160_FeaturedItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712011009577_FeaturedItems.cs" />
-    <Compile Include="Migrations\201712011009577_FeaturedItems.Designer.cs">
-      <DependentUpon>201712011009577_FeaturedItems.cs</DependentUpon>
+    <Compile Include="Migrations\201712060936516_Initial.cs" />
+    <Compile Include="Migrations\201712060936516_Initial.Designer.cs">
+      <DependentUpon>201712060936516_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,26 +65,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711300627294_Initial.resx">
-      <DependentUpon>201711300627294_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711300910012_AddImage.resx">
-      <DependentUpon>201711300910012_AddImage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711300921531_AddImage1.resx">
-      <DependentUpon>201711300921531_AddImage1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711300954423_imagesupport.resx">
-      <DependentUpon>201711300954423_imagesupport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712010952183_image.resx">
-      <DependentUpon>201712010952183_image.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712011000160_FeaturedItem.resx">
-      <DependentUpon>201712011000160_FeaturedItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712011009577_FeaturedItems.resx">
-      <DependentUpon>201712011009577_FeaturedItems.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712060936516_Initial.resx">
+      <DependentUpon>201712060936516_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

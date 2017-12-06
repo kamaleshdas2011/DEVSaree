@@ -1,0 +1,89 @@
+﻿<div>
+    <h2>{{pagename}}</h2>
+    <div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2">Image Name</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Image Base Colour</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="basecolour" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Image Caption</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="caption" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Image List</label>
+                <div class="col-md-10">
+                    <table>
+                        <tr>
+                            <td ng-repeat="img in images">
+                                <div ng-class="{'imgHoverBorder':$index == hoverImage}" class="figure"
+                                     ng-mouseenter="changeColour($index, true)"
+                                     ng-mouseleave="changeColour($index, false)"
+                                     ng-click="onSelect($index, img)">
+                                    <p>
+                                        <img src="{{img.ImageLocation}}"
+                                             width="136" height="200"
+                                             alt="{{img.Caption}}">
+                                    <p>
+                                        {{img.Caption}}
+                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+                    {{selectedImage.ImageLocation}}
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Add" ng-click="AddImage()" class="btn btn-default" />
+                </div>
+            </div>
+            {{error}}
+        </form>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>
+                    Name
+                </th>
+                <th>Base Colour</th>
+                <th>
+                    Caption
+                </th>
+                <th></th>
+            </tr>
+
+            <tr ng-repeat="img in image">
+                <td>
+                    {{$index+1}}
+                </td>
+                <td>
+                    {{img.Name}}
+                </td>
+                <td>
+                    {{img.Caption}}
+                </td>
+                <td>
+                    <img style="width:100px;height:100px;" src="{{img.ImageLocation}}"/>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+</div>
+

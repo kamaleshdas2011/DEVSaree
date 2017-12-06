@@ -9,8 +9,9 @@ namespace DataModel
         {
         }
         public DbSet<Sarees> SareeContext { get; set; }
-        public DbSet<Images> ImageContext { get; set; }
+        public DbSet<Images> Image { get; set; }
         public DbSet<FeaturedItems> FeaturedItems { get; set; }
-
+        public DbSet<Colours> Colours { get; set; }
+        public DbSet<Material> Material { get; set; }
     }
 }

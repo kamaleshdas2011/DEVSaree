@@ -209,6 +209,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -1025,6 +1026,7 @@
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\Javascripts\AdminController.js" />
     <Content Include="Scripts\Javascripts\app.js" />
     <Content Include="Scripts\Javascripts\ImageController.js" />
     <Content Include="Scripts\Javascripts\ng-services.js" />
@@ -1053,8 +1055,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -1076,14 +1076,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Sarees\Create.cshtml" />
-    <Content Include="Views\Sarees\Delete.cshtml" />
-    <Content Include="Views\Sarees\Details.cshtml" />
-    <Content Include="Views\Sarees\Edit.cshtml" />
     <Content Include="Views\Sarees\Index.cshtml" />
     <Content Include="Views\Image\Show.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Material.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Admin\Colour.cshtml" />
+    <Content Include="Views\Admin\Image.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

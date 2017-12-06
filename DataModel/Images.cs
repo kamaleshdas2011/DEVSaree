@@ -10,8 +10,8 @@ namespace DataModel
 {
     public class Images
     {
-        
-        [Required]
+
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string ImageUri { get; set; }
         public string Name { get; set; }

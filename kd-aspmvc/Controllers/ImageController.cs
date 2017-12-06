@@ -34,10 +34,11 @@ namespace kd_aspmvc.Controllers
             var images = _store.GetAllImages();
             return Json(images, JsonRequestBehavior.AllowGet);
         }
-        public JsonResult GetFeaturedItems()
+        public JsonResult GetAllBlobImages()
         {
-            var images = _store.GetFeaturedItems();
+            var images = _store.GetAllBlobImages();
             return Json(images, JsonRequestBehavior.AllowGet);
         }
+        
     }
 }

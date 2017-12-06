@@ -1,0 +1,54 @@
+﻿<div>
+    <h2>{{pagename}}</h2>
+    <div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2">Colour Name</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Colour Description</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="description" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Add" ng-click="AddColour()" class="btn btn-default" />
+                </div>
+            </div>
+            {{error}}
+        </form>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+
+            <tr ng-repeat="col in colour">
+                <td>
+                    {{$index + 1}}
+                </td>
+                <td>
+                    {{col.Name}}
+                </td>
+                <td>
+                    {{col.Description}}
+                </td>
+
+            </tr>
+
+        </table>
+    </div>
+
+</div>
+

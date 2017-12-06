@@ -1,13 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataModel
 {
     public class Sarees
     {
-        [Required]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public Material Material { get; set; }
-        public Colours Colour { get; set; }
-        public Images Image { get; set; }
+        public int MaterialId { get; set; }
+        public virtual Material Material { get; set; }
+        public int ColourId { get; set; }
+        public virtual Colours Colour { get; set; }
+        public int ImageId { get; set; }
+        public virtual Images Image { get; set; }
     }
 }

@@ -45,7 +45,7 @@ namespace kd_aspmvc.AdminHelper
             List<Images> allImages = new List<Images>();
             using (SareeDbContext db = new SareeDbContext())
             {
-                allImages = db.ImageContext.ToList();
+                allImages = db.Image.ToList();
                 db.Configuration.AutoDetectChangesEnabled = false;
             };
                 
@@ -64,14 +64,20 @@ namespace kd_aspmvc.AdminHelper
                 var ablob = container.GetBlockBlobReference(blob);
                 var sasToken = ablob.GetSharedAccessSignature(sasPolicy);
 
-                (from img in allImages where img.ImageUri == blob select img).FirstOrDefault().ImageLocation= new Uri(_baseuri, $"/images/{blob}{sasToken}");
+                var image = (from img in allImages where img.ImageUri == blob select img).FirstOrDefault();
+                if (image!=null)
+                {
+                    image.ImageLocation = new Uri(_baseuri, $"/images/{blob}{sasToken}");
+                }
+                    
                 
                 //uris.Add(new Uri(_baseuri, $"/images/{blob}{sasToken}"));
             }
             return allImages;
         }
-        public List<Uri> GetFeaturedItems()
+        public List<Images> GetAllBlobImages()
         {
+            List<Images> allImages = new List<Images>();
             var sasPolicy = new SharedAccessBlobPolicy
             {
                 Permissions = SharedAccessBlobPermissions.Read,
@@ -80,14 +86,13 @@ namespace kd_aspmvc.AdminHelper
             };
             var container = _client.GetContainerReference("images");
             var blobs = container.ListBlobs().OfType<CloudBlockBlob>().Select(m => m.Name).ToList();
-            List<Uri> uris = new List<Uri>();
             foreach (var blob in blobs)
             {
                 var ablob = container.GetBlockBlobReference(blob);
                 var sasToken = ablob.GetSharedAccessSignature(sasPolicy);
-                uris.Add(new Uri(_baseuri, $"/images/{blob}{sasToken}"));
+                allImages.Add(new Images { ImageUri = blob, ImageLocation = new Uri(_baseuri, $"/images/{blob}{sasToken}") });
             }
-            return uris;
+            return allImages;
         }
     }
 }

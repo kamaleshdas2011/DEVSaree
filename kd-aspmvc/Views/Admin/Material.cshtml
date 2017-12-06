@@ -1,0 +1,53 @@
+﻿<div>
+    <h2>{{pagename}}</h2>
+    <div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2">Material Name</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="name"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Material Description</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="description" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Add" ng-click="AddMaterial()" class="btn btn-default" />
+                </div>
+            </div>
+            {{error}}
+        </form>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+
+                <tr ng-repeat="mat in material">
+                    <td>
+                        {{$index + 1}}
+                    </td>
+                    <td>
+                        {{mat.Name}}
+                    </td>
+                    <td>
+                        {{mat.Description}}
+                    </td>
+                   
+                </tr>
+
+        </table>
+    </div>
+
+</div>

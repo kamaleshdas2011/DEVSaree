@@ -1,11 +1,13 @@
-﻿namespace DataModel
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DataModel
 {
-    public enum Colours
+    public class Colours
     {
-        White,
-        OffWhite,
-        Yellow,
-        OliveGreen,
-        SkyBlue
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }        
     }
 }

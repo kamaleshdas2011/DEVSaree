@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div ng-controller="IndexController">
+    <h1>{{pagename}}</h1>
+    <br />
+    <a href="#!/material">Material</a>
+    <br />    
+    <a href="#!/colour">Colour</a>
+    <br />
+    <a href="#!/image">Image</a>
+    <br />
+    <div ng-view></div> 
+</div>
+
