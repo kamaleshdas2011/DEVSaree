@@ -43,7 +43,7 @@ namespace kd_aspmvc.AdminHelper
         public List<Images> GetAllImages()
         {
             List<Images> allImages = new List<Images>();
-            using (SareeDbContext db = new SareeDbContext())
+            using (DatabaseContext db = new DatabaseContext())
             {
                 allImages = db.Image.ToList();
                 db.Configuration.AutoDetectChangesEnabled = false;

@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/Javascripts/ProductController.js"></script>
+<div ng-controller="ProductController">
+    <display-product prod-data="prod" ng-repeat="prod in product"></display-product>
+</div>
+

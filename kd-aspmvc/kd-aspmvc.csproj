@@ -213,6 +213,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SareesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1030,6 +1031,7 @@
     <Content Include="Scripts\Javascripts\app.js" />
     <Content Include="Scripts\Javascripts\ImageController.js" />
     <Content Include="Scripts\Javascripts\ng-services.js" />
+    <Content Include="Scripts\Javascripts\ProductController.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
@@ -1086,6 +1088,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Admin\Colour.cshtml" />
     <Content Include="Views\Admin\Image.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\DisplayProductTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

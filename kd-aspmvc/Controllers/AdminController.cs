@@ -22,7 +22,7 @@ namespace kd_aspmvc.Controllers
         public void AddMaterial(Material material)
         {
 
-            using (SareeDbContext db = new SareeDbContext())
+            using (DatabaseContext db = new DatabaseContext())
             {
                 db.Material.Add(material);
                 db.SaveChanges();
@@ -37,7 +37,7 @@ namespace kd_aspmvc.Controllers
         public void AddColour(Colours colour)
         {
 
-            using (SareeDbContext db = new SareeDbContext())
+            using (DatabaseContext db = new DatabaseContext())
             {
                 db.Colours.Add(colour);
                 db.SaveChanges();
@@ -52,7 +52,7 @@ namespace kd_aspmvc.Controllers
         public void AddImage(Images image)
         {
 
-            using (SareeDbContext db = new SareeDbContext())
+            using (DatabaseContext db = new DatabaseContext())
             {
                 db.Image.Add(image);
                 db.SaveChanges();

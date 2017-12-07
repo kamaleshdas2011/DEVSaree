@@ -20,11 +20,11 @@
                 });
         }
         return {
-            //getFeaturedItems: getFeaturedItems,
             getAllImages: getAllImages,
             getCreateData: getCreateData
         };
     }
+    //generic service to submit form
     var SubmitForm = function ($http) {
         var submitForm = function (data, url) {
             return $http.post(url, data).then(
@@ -36,6 +36,7 @@
             postResponse: submitForm
         }
     }
+    //get all images from azure blob storage
     var AllBlobImages = function ($http) {
         
         var getAllBlobImages = function () {
@@ -48,9 +49,23 @@
             getAllBlobImages: getAllBlobImages,
         };
     }
+    //get all products
+    var AllProducts = function ($http) {
+
+        var getAllProducts = function () {
+            return $http.get("/Product/GetAllProducts")
+                .then(function (response) {
+                    return response.data
+                });
+        }
+        return {
+            getAllProducts: getAllProducts,
+        };
+    }
     var module = angular.module("app");
     module.factory("FeaturedItems", FeaturedItems);
     module.factory("SubmitForm", SubmitForm);
     module.factory("AllBlobImages", AllBlobImages);
+    module.factory("AllProducts", AllProducts);
 }()
 );

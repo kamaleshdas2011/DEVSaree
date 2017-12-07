@@ -8,7 +8,7 @@ namespace kd_aspmvc.Controllers
 {
     public class SareesController : Controller
     {
-        private SareeDbContext db = new SareeDbContext();
+        private DatabaseContext db = new DatabaseContext();
         private ImageStore _store = new ImageStore();
         // GET: Sarees
         public ActionResult Index()

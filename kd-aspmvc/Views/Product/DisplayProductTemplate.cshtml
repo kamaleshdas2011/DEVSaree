@@ -1,0 +1,17 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" ng-click="collapse()">{{prod.product_name}}</div>
+    <div class="panel-body" ng-hide="collapsed">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-4">
+            {{prod.product_description}}
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-success" type="submit" ng-click="addToCart(prod)" ng-show="!user.rank">
+                Add to cart
+            </button>
+        </div>
+
+    </div>
+</div>
