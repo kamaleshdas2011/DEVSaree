@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module("app", ["ngRoute"]);
+    var app = angular.module("app", ["ngRoute","ngAnimate"]);
 
     //var adminapp = angular.module("adminapp", ["ngRoute"]);
     app.config(function ($routeProvider, $locationProvider) {
@@ -24,5 +24,8 @@
             })
             .otherwise({ redirectTo: "/" })
         $locationProvider.html5Mode(false).hashPrefix('!'); // This is for Hashbang Mode
-    })    
+    })   
+
+    
+
 }());

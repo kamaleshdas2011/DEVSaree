@@ -5,6 +5,9 @@
 }
 <script src="~/Scripts/Javascripts/ProductController.js"></script>
 <div ng-controller="ProductController">
+    <div>
+        <shopping-cart></shopping-cart>
+    </div>
     <display-product prod-data="prod" ng-repeat="prod in product"></display-product>
 </div>
 

@@ -1,0 +1,4 @@
+﻿<a href="default.htm#/cart" title="go to shopping cart">
+    @*<i class="glyphicon glyphicon-shopping-cart" />*@
+    <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency: "INR "}}</b>
+</a>

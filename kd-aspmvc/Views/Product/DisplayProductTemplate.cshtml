@@ -1,15 +1,41 @@
 ﻿<div class="panel panel-primary">
-    <div class="panel-heading" ng-click="collapse()">{{prod.product_name}}</div>
+    <div class="panel-heading" style="cursor:pointer;" ng-click="collapse()">{{prod.product_name}}</div>
     <div class="panel-body" ng-hide="collapsed">
-        <div class="col-md-6">
-
+        <div class="col-md-4">
+            <img style="width:100px;height:100px;cursor:pointer;" src="{{prod.PreviewImage.ImageLocation}}" ng-click="viewAllImages()"/>
+        </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal" ng-show="displayImages">
+            <span class="close" ng-click="viewAllImages()">&times;</span>            
+            <div class="slider">
+                <div>{{$index + 1 }}/{{ prod.all_images.length}}</div>
+                <div class="slide" ng-repeat="img in prod.all_images">
+                    <img class="modal-content" src="{{img.ImageLocation}}" />
+                </div>
+                
+                <div>{{img.Caption}}</div>
+            </div>
+            <div class="">
+                <a href="#" ng-click="prev()">
+                    <<
+                </a>
+                <a href="#" ng-click="next()">
+                    >>
+                </a>
+            </div>
         </div>
         <div class="col-md-4">
             {{prod.product_description}}
         </div>
         <div class="col-md-2">
-            <button class="btn btn-success" type="submit" ng-click="addToCart(prod)" ng-show="!user.rank">
+            Price: {{prod.price_per_unit | currency: "INR "}}
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-success" ng-click="cart.addItem(prod.id, prod.product_name, prod.price_per_unit, 1)">
                 Add to cart
+            </button>
+            <button class="btn btn-success" ng-click="cart.addItem(prod.id, prod.product_name, prod.price_per_unit, -10000)">
+                Remove from cart
             </button>
         </div>
 

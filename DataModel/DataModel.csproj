@@ -52,6 +52,7 @@
     <Compile Include="city.cs" />
     <Compile Include="client.cs" />
     <Compile Include="country.cs" />
+    <Compile Include="DatabaseContext.cs" />
     <Compile Include="FeaturedItems.cs" />
     <Compile Include="Colours.cs" />
     <Compile Include="Images.cs" />
@@ -64,14 +65,25 @@
     <Compile Include="Migrations\201712070812238_product.Designer.cs">
       <DependentUpon>201712070812238_product.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712080518312_new-prod.cs" />
+    <Compile Include="Migrations\201712080518312_new-prod.Designer.cs">
+      <DependentUpon>201712080518312_new-prod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712120606067_image-list.cs" />
+    <Compile Include="Migrations\201712120606067_image-list.Designer.cs">
+      <DependentUpon>201712120606067_image-list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712120619305_all-image.cs" />
+    <Compile Include="Migrations\201712120619305_all-image.Designer.cs">
+      <DependentUpon>201712120619305_all-image.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="payment_data.cs" />
     <Compile Include="payment_details.cs" />
     <Compile Include="payment_type.cs" />
-    <Compile Include="product.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="product_type.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SareeDbContext.cs" />
     <Compile Include="Sarees.cs" />
     <Compile Include="shipment.cs" />
     <Compile Include="shipment_details.cs" />
@@ -90,6 +102,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712070812238_product.resx">
       <DependentUpon>201712070812238_product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080518312_new-prod.resx">
+      <DependentUpon>201712080518312_new-prod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712120606067_image-list.resx">
+      <DependentUpon>201712120606067_image-list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712120619305_all-image.resx">
+      <DependentUpon>201712120619305_all-image.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

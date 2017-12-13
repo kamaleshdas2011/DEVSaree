@@ -22,5 +22,9 @@ namespace kd_aspmvc.Controllers
         {
             return PartialView();
         }
+        public ActionResult ShoppingCart()
+        {
+            return PartialView();
+        }
     }
 }

@@ -1,14 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace DataModel
 {
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
-    public partial class Product
+    public class Product
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-
         [Required]
         [StringLength(64)]
         public string product_name { get; set; }
@@ -28,6 +31,9 @@ namespace DataModel
         public int PreviewImageId { get; set; }
         public virtual Images PreviewImage { get; set; }
 
-        public virtual ICollection<Images> Images { get; set; }
+        public string all_image_ids { get; set; }
+
+        [NotMapped]
+        public List<Images> all_images { get; set; }
     }
 }
