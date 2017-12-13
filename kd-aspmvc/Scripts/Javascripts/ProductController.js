@@ -35,24 +35,6 @@
             //    prod: "=prodData"
             //},
             //transclude: true,
-            link: function (scope, elem, attrs) {
-                scope.currentIndex = 0; // Initially the index is at the first image
-
-                scope.next = function () {
-                    scope.currentIndex < scope.all_images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
-                };
-
-                scope.prev = function () {
-                    scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.all_images.length - 1;
-                };
-                scope.$watch('currentIndex', function () {
-                    scope.all_images.forEach(function (image) {
-                        image.visible = false; // make every image invisible
-                    });
-
-                    scope.all_images[scope.currentIndex].visible = true; // make the current image visible
-                });
-            },
             controller: function ($scope, $rootScope) {
                 $scope.addItem = function (sku, name, price, quantity) {
                     CartService.addItem(sku, name, price, quantity);
@@ -79,16 +61,6 @@
 
             //}
         }
-    }
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        if (n > x.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = x.length };
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        x[slideIndex - 1].style.display = "block";
     }
     app.controller("ProductController", ProductController);
     app.directive("displayProduct", displayProduct);
