@@ -22,6 +22,16 @@
             .when("/contact", {
                 templateUrl: "/Home/Contact",
             })
+            //.when("/products", {
+            //    templateUrl: "/Product/Product",
+            //    controller: "ProductController"
+            //})
+            //.when("/details/:sku", {
+            //    templateUrl: function (params) {
+            //        return '/Product/ProductDetails?sku=' + params.sku;
+            //    },
+            //    controller: "ProductDetailsController"
+            //})
             .otherwise({ redirectTo: "/" })
         $locationProvider.html5Mode(false).hashPrefix('!'); // This is for Hashbang Mode
     })   

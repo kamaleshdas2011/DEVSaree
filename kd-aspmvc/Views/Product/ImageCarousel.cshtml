@@ -1,0 +1,39 @@
+﻿<script>
+    $('#myCarousel').carousel({
+        interval: 5000,
+        pause: true
+    })
+</script>
+<!-- The Modal -->
+<div id="myModal" class="modal" ng-show="displayImages">
+    <span class="close" ng-click="viewAllImages()">&times;</span>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="{{$index+1}}" ng-repeat-end="img in prod.all_images" ng-if="!$first"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" ng-repeat-start="img in prod.all_images" ng-if="$first">
+                <img class="modal-content" src="{{img.ImageLocation}}" />
+                <div class="carousel-caption">
+                    <h1>{{img.Name}}</h1>
+                    <p>{{img.Caption}}</p>
+                </div>
+            </div>
+            <div class="item" ng-repeat-end="img in prod.all_images" ng-if="!$first">
+                <img class="modal-content" src="{{img.ImageLocation}}" />
+                <div class="carousel-caption">
+                    <h1>{{img.Name}}</h1>
+                    <p>{{img.Caption}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    </div>
+</div>

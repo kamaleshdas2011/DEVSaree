@@ -4,7 +4,6 @@
     var ProductController = function ($scope, FeaturedItems, SubmitForm, AllProducts, DataService, $routeParams) {
 
         // get store and cart from service
-        $scope.store = DataService.store;
         $scope.cart = DataService.cart;
 
         // apply changes when cart items change
@@ -13,31 +12,33 @@
                 $scope.$apply();
             }
         }
-
-        // use routing to pick the selected product
-        if ($routeParams.productSku != null) {
-            $scope.product = $scope.store.getProduct($routeParams.productSku);
-        }
+        
         var onAllProducts = function (data) {
             $scope.product = data;
         };
         var onError = function (reason) {
             $scope.error = reason;
         };
-
+        $scope.displayproducts = true;
         AllProducts.getAllProducts().then(onAllProducts, onError);
     }
     var displayProduct = function () {
         return {
             templateUrl: "/Product/DisplayProductTemplate",
             restrict: "E",
+            scope: true,
             //scope: {
             //    prod: "=prodData"
             //},
             //transclude: true,
-            controller: function ($scope, $rootScope) {
-                $scope.addItem = function (sku, name, price, quantity) {
-                    CartService.addItem(sku, name, price, quantity);
+            controller: function ($scope, $location) {
+                //$scope.addItem = function (sku, name, price, quantity) {
+                //    CartService.addItem(sku, name, price, quantity);
+                //}
+                $scope.displayproducts = true;
+                $scope.Details = function (sku) {
+                    //$scope.displayproducts = false;
+                    $location.path("/details/" + sku);
                 }
                 $scope.collapsed = false;
                 $scope.displayImages = false;
@@ -60,6 +61,12 @@
             //controller: function ($scope, $rootScope) {
 
             //}
+        }
+    }
+    var imageCarousel = function () {
+        return {
+            templateUrl: "/Product/ImageCarousel",
+            rstrict: "AE"
         }
     }
     app.controller("ProductController", ProductController);

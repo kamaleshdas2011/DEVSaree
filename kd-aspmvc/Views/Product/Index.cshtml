@@ -4,10 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script src="~/Scripts/Javascripts/ProductController.js"></script>
+<script src="~/Scripts/Javascripts/ProductDetailsController.js"></script>
 <div ng-controller="ProductController">
     <div>
         <shopping-cart></shopping-cart>
     </div>
-    <display-product prod-data="prod" ng-repeat="prod in product"></display-product>
+    <div id="prodPanel" ng-show="displayproducts">
+        <display-product ng-repeat="prod in product"></display-product>
+    </div>
 </div>
 
