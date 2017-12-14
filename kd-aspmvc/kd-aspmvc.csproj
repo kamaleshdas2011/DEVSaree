@@ -1036,6 +1036,7 @@
     <Content Include="Scripts\Javascripts\app.js" />
     <Content Include="Scripts\Javascripts\ImageController.js" />
     <Content Include="Scripts\Javascripts\MainController.js" />
+    <Content Include="Scripts\Javascripts\ModalImageController.js" />
     <Content Include="Scripts\Javascripts\ng-services.js" />
     <Content Include="Scripts\Javascripts\ProductController.js" />
     <Content Include="Scripts\Javascripts\ProductDetailsController.js" />
@@ -1101,6 +1102,7 @@
     <Content Include="Views\Home\ShoppingCart.cshtml" />
     <Content Include="Views\Product\ImageCarousel.cshtml" />
     <Content Include="Views\Product\ProductDetails.cshtml" />
+    <Content Include="Views\Image\ModalImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

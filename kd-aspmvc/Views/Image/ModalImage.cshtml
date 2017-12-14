@@ -1,0 +1,16 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="$close()">x</button>
+    <h4 class="text-center">{{productname}}</h4>
+</div>
+<div class="modal-body">
+    <div uib-carousel interval="5000" active="active">
+        <div uib-slide index="$index" ng-repeat="slide in images">
+            <img ng-src="{{ slide.ImageLocation }}" class="carousel-image">
+            <div class="text-center">
+                <h4>{{$index+1}}/{{images.length}}</h4>
+                <p>{{slide.Name}}</p>
+                <br><br>
+            </div>
+        </div>        
+    </div>
+</div>

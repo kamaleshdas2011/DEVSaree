@@ -53,10 +53,10 @@ namespace kd_aspmvc.Controllers
                 db.Configuration.AutoDetectChangesEnabled = false;
                 prods = (from prod in db.Products where prod.id == sku select prod).FirstOrDefault();
                 prods.PreviewImage.ImageLocation = _store.UriFor(prods.PreviewImage.ImageUri);
-                var images = db.Image.ToList();
-                string[] allImages = prods.all_image_ids.Split(',');
-                prods.all_images = (from img in images where allImages.Contains(img.Id.ToString()) select img).ToList();
-                prods.all_images = prods.all_images.Select(c => { c.ImageLocation = _store.UriFor(c.ImageUri); return c; }).ToList();
+                //var images = db.Image.ToList();
+                //string[] allImages = prods.all_image_ids.Split(',');
+                //prods.all_images = (from img in images where allImages.Contains(img.Id.ToString()) select img).ToList();
+                //prods.all_images = prods.all_images.Select(c => { c.ImageLocation = _store.UriFor(c.ImageUri); return c; }).ToList();
             }
             return PartialView(prods);
         }

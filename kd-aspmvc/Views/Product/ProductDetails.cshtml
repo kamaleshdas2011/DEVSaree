@@ -3,24 +3,27 @@
     ViewBag.Title = "ProductDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<script src="~/Scripts/Javascripts/shoppingCart.js"></script>
 <script src="~/Scripts/Javascripts/ProductDetailsController.js"></script>
-<div>
-    <shopping-cart></shopping-cart>
-</div>
-<div class="container row" ng-controller="ProductDetailsController">
+<script src="~/Scripts/Javascripts/ModalImageController.js"></script>
+<div style="margin-top:10%;" ng-controller="ProductDetailsController">
+    <div>
+        <shopping-cart></shopping-cart>
+    </div>
+    <div class="row" ng-init="init(@Newtonsoft.Json.JsonConvert.SerializeObject(Model))">
         <div class="col-md-4">
-            <img src="@Model.PreviewImage.ImageLocation" class="product-details-image"/>
+            <img ng-click="showModal('@Model.id','@Model.product_name')" src="@Model.PreviewImage.ImageLocation" class="product-details-image cursor-pointer" />
         </div>
         <div class="col-md-4">
             <h4>@Model.product_name</h4>
             <p>@Model.product_description</p>
         </div>
-    <div class="col-md-4">
-        <button class="btn btn-success" ng-click="cart.addItem(prod.id, prod.product_name, prod.price_per_unit, 1)">
-            Add to cart
-        </button>
+        <div class="col-md-4">
+            <button class="btn btn-success" ng-click="cart.addItem('@Model.id', '@Model.product_name', '@Model.price_per_unit', 1)">
+                Add to cart
+            </button>
+        </div>
     </div>
 </div>
+
 
 

@@ -1,32 +1,29 @@
 ﻿
 <div class="panel panel-primary">
 
-    @Html.ActionLink("action link", "ProductDetails", "Product", new { sku = "1" },null)
-        <a href="window.location.href='/Product/ProductDetails?sku={{prod.id}}'">
-            Details
-        </a>
-        <div class="panel-heading" style="cursor:pointer;" ng-click="collapse()">{{prod.product_name}}</div>
-        <div class="panel-body" ng-hide="collapsed">
-            <div class="col-md-4" @*ng-click="Details(prod.id)"*@ style="cursor:pointer;">
-                <img style="width:100px;height:100px;" src="{{prod.PreviewImage.ImageLocation}}" />
-            </div>
-
-            <div class="col-md-4">
-                {{prod.product_description}}
-            </div>
-            <div class="col-md-2">
-                Price: {{prod.price_per_unit | currency: "INR "}}
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-success" ng-click="cart.addItem(prod.id, prod.product_name, prod.price_per_unit, 1)">
-                    Add to cart
-                </button>
-                <button class="btn btn-success" ng-click="cart.addItem(prod.id, prod.product_name, prod.price_per_unit, -10000)">
-                    Remove from cart
-                </button>
-            </div>
-
+    <div class="panel-heading cursor-pointer" style="cursor:pointer;" ng-click="Details(prod.id)">{{prod.product_name}}</div>
+    <div class="panel-body">
+        <div class="col-md-4 cursor-pointer" ng-click="Details(prod.id)">
+            <img style="width:100px;height:100px;" src="{{prod.PreviewImage.ImageLocation}}" />
         </div>
-    
-    
+
+        <div class="col-md-4 cursor-pointer" ng-click="Details(prod.id)">
+            {{prod.product_description}}
+        </div>
+        <div class="col-md-2">
+            Price: {{prod.price_per_unit | currency: "INR "}}
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-success" ng-click="cart.addItem(prod.id, prod.product_name, prod.price_per_unit, 1)">
+                Add to cart
+            </button>
+            <br /><br />
+            <button class="btn btn-success" ng-click="cart.addItem(prod.id, prod.product_name, prod.price_per_unit, -10000)">
+                Remove from cart
+            </button>
+        </div>
+
+    </div>
+
+
 </div>

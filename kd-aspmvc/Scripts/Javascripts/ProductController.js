@@ -19,7 +19,6 @@
         var onError = function (reason) {
             $scope.error = reason;
         };
-        $scope.displayproducts = true;
         AllProducts.getAllProducts().then(onAllProducts, onError);
     }
     var displayProduct = function () {
@@ -35,19 +34,19 @@
                 //$scope.addItem = function (sku, name, price, quantity) {
                 //    CartService.addItem(sku, name, price, quantity);
                 //}
-                $scope.displayproducts = true;
                 $scope.Details = function (sku) {
                     //$scope.displayproducts = false;
-                    $location.path("/details/" + sku);
+                    //$location.path("/details/" + sku);
+                    window.location.href = "/Product/ProductDetails?sku=" + sku;
                 }
-                $scope.collapsed = false;
-                $scope.displayImages = false;
-                $scope.collapse = function () {
-                    $scope.collapsed = !$scope.collapsed;
-                };
-                $scope.viewAllImages = function () {
-                    $scope.displayImages = !$scope.displayImages;
-                }
+                //$scope.collapsed = false;
+                //$scope.displayImages = false;
+                //$scope.collapse = function () {
+                //    $scope.collapsed = !$scope.collapsed;
+                //};
+                //$scope.viewAllImages = function () {
+                //    $scope.displayImages = !$scope.displayImages;
+                //}
             }
         }
     }
@@ -63,12 +62,7 @@
             //}
         }
     }
-    var imageCarousel = function () {
-        return {
-            templateUrl: "/Product/ImageCarousel",
-            rstrict: "AE"
-        }
-    }
+   
     app.controller("ProductController", ProductController);
     app.directive("displayProduct", displayProduct);
     app.directive("shoppingCart", shoppingCart);

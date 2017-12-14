@@ -75,7 +75,19 @@
             getProductDetails: getProductDetails,
         };
     }
-    
+    //get all images by products
+    var GetImagesByProduct = function ($http) {
+
+        var getImagesByProduct = function (sku) {
+            return $http.get("/Image/GetImagesByProduct?sku=" + sku)
+                .then(function (response) {
+                    return response.data
+                });
+        }
+        return {
+            getImagesByProduct: getImagesByProduct,
+        };
+    }
     // create a data service that provides a store and a shopping cart that
     // will be shared by all views (instead of creating fresh ones for each view).
     var DataService = function () {
@@ -124,5 +136,7 @@
     module.factory("AllProducts", AllProducts);
     module.factory("DataService", DataService);
     module.factory("ProductDetails", ProductDetails);
+    module.factory("GetImagesByProduct", GetImagesByProduct);
+    
 }()
 );
