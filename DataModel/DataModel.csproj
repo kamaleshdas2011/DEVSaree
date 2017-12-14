@@ -77,6 +77,10 @@
     <Compile Include="Migrations\201712120619305_all-image.Designer.cs">
       <DependentUpon>201712120619305_all-image.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712141115059_vendor.cs" />
+    <Compile Include="Migrations\201712141115059_vendor.Designer.cs">
+      <DependentUpon>201712141115059_vendor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="payment_data.cs" />
     <Compile Include="payment_details.cs" />
@@ -91,6 +95,7 @@
     <Compile Include="shipment_type.cs" />
     <Compile Include="status_catalog.cs" />
     <Compile Include="stock.cs" />
+    <Compile Include="Vendor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -111,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712120619305_all-image.resx">
       <DependentUpon>201712120619305_all-image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712141115059_vendor.resx">
+      <DependentUpon>201712141115059_vendor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

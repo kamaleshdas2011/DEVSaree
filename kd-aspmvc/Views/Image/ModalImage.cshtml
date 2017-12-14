@@ -3,7 +3,7 @@
     <h4 class="text-center">{{productname}}</h4>
 </div>
 <div class="modal-body">
-    <div uib-carousel interval="5000" active="active">
+    <div uib-carousel active="active">
         <div uib-slide index="$index" ng-repeat="slide in images">
             <img ng-src="{{ slide.ImageLocation }}" class="carousel-image">
             <div class="text-center">

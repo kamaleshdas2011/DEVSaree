@@ -52,7 +52,7 @@
             $scope.description = null;
         }
     }
-    var AddImageController = function ($scope, FeaturedItems, SubmitForm, AllBlobImages) {
+    var AddImageController = function ($scope, FeaturedItems, SubmitForm, AllBlobImages, UploadFiles) {
         $scope.pagename = "Add/update images.";
         var onAllFormData = function (data) {
             $scope.image = data;
@@ -84,9 +84,9 @@
             var url = '/Admin/AddImage';
             var onPost = function (data) {
                 $scope.postResponse = data;
-                FeaturedItems.getAllImages().then(onAllFormData, onError);
+                FeaturedItems.AllBlobImages().then(onAllImages, onError);
             };
-            var data = { Name: $scope.name, Caption: $scope.caption, ImageUri: $scope.selectedImage.ImageUri, BaseColour:$scope.basecolour };
+            var data = { Name: $scope.name, Caption: $scope.caption, ImageUri: $scope.selectedImage.ImageUri, BaseColour: $scope.basecolour };
             SubmitForm.postResponse(data, url).then(onPost, onError);
 
             $scope.name = null;
@@ -94,7 +94,38 @@
             $scope.imageuri = null;
             $scope.basecolour = null;
         }
-    }   
+        var formdata = new FormData();
+        $scope.getTheFiles = function ($files) {
+            angular.forEach($files, function (value, key) {
+                formdata.append(key, value);
+            });
+        };
+        $scope.UploadImage = function () {            
+            var url = '/Admin/UploadImages';
+            var onPost = function (data) {
+                $scope.postResponse = data;
+                FeaturedItems.getAllImages().then(onAllFormData, onError);
+            };
+            //var data = { Name: $scope.name, Caption: $scope.caption, ImageUri: $scope.selectedImage.ImageUri, BaseColour: $scope.basecolour };
+            UploadFiles.postResponse(formdata, url).then(onPost, onError);
+        }
+    }
+
+        
+
+    app.directive('ngFiles', ['$parse', function ($parse) {
+
+            function fn_link(scope, element, attrs) {
+                var onChange = $parse(attrs.ngFiles);
+                element.on('change', function (event) {
+                    onChange(scope, { $files: event.target.files });
+                });
+            };
+
+            return {
+                link: fn_link
+            }
+        }])
     app.controller("MaterialController", MaterialController);
     app.controller("IndexController", IndexController);
     app.controller("ColourController", ColourController);

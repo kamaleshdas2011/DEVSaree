@@ -17,6 +17,7 @@ namespace DataModel
         public string Name { get; set; }
         public string BaseColour { get; set; }
         public string Caption { get; set; }
+        public string Categoty { get; set; }
         [NotMapped]
         public Uri ImageLocation { get; set; }
     }

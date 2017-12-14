@@ -1103,6 +1103,7 @@
     <Content Include="Views\Product\ImageCarousel.cshtml" />
     <Content Include="Views\Product\ProductDetails.cshtml" />
     <Content Include="Views\Image\ModalImage.cshtml" />
+    <Content Include="Views\Admin\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

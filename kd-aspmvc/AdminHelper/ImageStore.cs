@@ -18,12 +18,12 @@ namespace kd_aspmvc.AdminHelper
         {
             _client = new CloudBlobClient(_baseuri, new StorageCredentials("kdaspmvcstore", "mrwZQytWB/Abilsaca975Z6JVaIxV5NEM0XohvCUv8KIRJAkHmGE1jGZJ1Ym4Dq+UpevknvW686mQxckT/ji9Q=="));
         }
-        public async Task<string> SaveImage(Stream stream, string name)
+        public string SaveImage(Stream stream)
         {
             var id = Guid.NewGuid().ToString();
             var container = _client.GetContainerReference("images");
             var blob = container.GetBlockBlobReference(id);
-            await blob.UploadFromStreamAsync(stream);
+            blob.UploadFromStreamAsync(stream);
             return id;
         }
         public Uri UriFor(string id)

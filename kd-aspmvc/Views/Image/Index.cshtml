@@ -7,7 +7,7 @@
 <h2>Upload image</h2>
 <form method="post" action="@Url.Action("Upload")" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
-    <input type="file" name="stream"/>
+    <input type="file" name="stream" multiple/>
     <hr />
     <input value="Go!" type="submit" class="btn btn-primary"/>
 </form>

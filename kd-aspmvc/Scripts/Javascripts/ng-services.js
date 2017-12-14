@@ -36,6 +36,27 @@
             postResponse: submitForm
         }
     }
+    //generic service to submit form
+    var UploadFiles = function ($http) {
+       
+        var uploadFiles = function (data, url) {
+            var request = {
+                method: 'POST',
+                url: url,
+                data: data,
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            };
+            return $http.post(url, data).then(
+                function (response) {
+                    return response.data;
+                })
+        }
+        return {
+            postResponse: uploadFiles
+        }
+    }
     //get all images from azure blob storage
     var AllBlobImages = function ($http) {
         
@@ -137,6 +158,8 @@
     module.factory("DataService", DataService);
     module.factory("ProductDetails", ProductDetails);
     module.factory("GetImagesByProduct", GetImagesByProduct);
+    module.factory("UploadFiles", UploadFiles);
+    
     
 }()
 );

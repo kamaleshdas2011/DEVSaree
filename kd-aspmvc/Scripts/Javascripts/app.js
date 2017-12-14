@@ -15,6 +15,10 @@
                 templateUrl: "/Admin/Image",
                 controller: "AddImageController"
             })
+            .when("/uploadimage", {
+                templateUrl: "/Admin/UploadImage",
+                controller: "AddImageController"
+            })
             .when("/about", {
                 templateUrl: "/Home/About",
             })

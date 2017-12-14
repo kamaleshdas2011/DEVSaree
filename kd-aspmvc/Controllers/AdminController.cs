@@ -1,4 +1,5 @@
 ﻿using DataModel;
+using kd_aspmvc.AdminHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,20 @@ namespace kd_aspmvc.Controllers
                 db.SaveChanges();
             }
             //return PartialView();
+        }
+        public ActionResult UploadImage()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public void UploadImages()
+        {
+            var files = Request.Form["filename"];
+            //ImageStore _store = new ImageStore();
+            //if (stream != null)
+            //{
+            //    var id = _store.SaveImage(stream.InputStream);
+            //}
         }
     }
 }

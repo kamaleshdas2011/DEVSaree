@@ -32,7 +32,9 @@ namespace DataModel
         public virtual Images PreviewImage { get; set; }
 
         public string all_image_ids { get; set; }
-
+        public string all_vendors { get; set; }
+        [NotMapped]
+        public virtual List<Vendor> Vendors { get; set; }
         [NotMapped]
         public List<Images> all_images { get; set; }
     }
