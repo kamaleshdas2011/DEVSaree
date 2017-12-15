@@ -4,9 +4,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Select files</label>
             <div class="col-md-10">
-                <input type="text" name="filename" value="filename1"/>
                 <input type="file" name="file" multiple ng-files="getTheFiles($files)" class="btn btn-default"/>
-                @*<input type="file" ng-bind="{{stream}}" name="stream" multiple class="btn btn-default" />*@
             </div>
         </div>
         <div class="form-group">
@@ -16,27 +14,17 @@
         </div>
         {{error}}
         <div class="form-group">
-            <label class="control-label col-md-2">Image List</label>
-            <div class="col-md-10">
-                <table>
-                    <tr>
-                        <td ng-repeat="img in images">
-                            <div class="figure">
-                                <p>
-                                    <img src="{{img.ImageLocation}}"
-                                         width="136" height="200"
-                                         alt="{{img.Caption}}">
-                                <p>
-                                    {{img.Caption}}
-                            </div>
-
-                        </td>
-                    </tr>
-                </table>
-                {{selectedImage.ImageLocation}}
-
+            <label class="control-label col-md-2">Image List</label>           
+            <div class="row">
+                <div class="col-md-2" ng-repeat="img in images">
+                    <div class="thumbnail show-image">
+                            <img src="{{img.ImageLocation}}" style="width:100%;height:100px;" alt="{{img.Caption}}">
+                            <edit-block></edit-block>
+                    </div>
+                </div>                
             </div>
         </div>
+
     </form>
 </div>
 

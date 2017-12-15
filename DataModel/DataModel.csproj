@@ -53,8 +53,10 @@
     <Compile Include="client.cs" />
     <Compile Include="country.cs" />
     <Compile Include="DatabaseContext.cs" />
+    <Compile Include="Enums\IOActions.cs" />
     <Compile Include="FeaturedItems.cs" />
     <Compile Include="Colours.cs" />
+    <Compile Include="Files.cs" />
     <Compile Include="Images.cs" />
     <Compile Include="Material.cs" />
     <Compile Include="Migrations\201712060936516_Initial.cs" />
@@ -80,6 +82,10 @@
     <Compile Include="Migrations\201712141115059_vendor.cs" />
     <Compile Include="Migrations\201712141115059_vendor.Designer.cs">
       <DependentUpon>201712141115059_vendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712141337094_vendors.cs" />
+    <Compile Include="Migrations\201712141337094_vendors.Designer.cs">
+      <DependentUpon>201712141337094_vendors.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="payment_data.cs" />
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712141115059_vendor.resx">
       <DependentUpon>201712141115059_vendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712141337094_vendors.resx">
+      <DependentUpon>201712141337094_vendors.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

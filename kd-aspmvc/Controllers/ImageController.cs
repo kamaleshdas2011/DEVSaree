@@ -17,11 +17,11 @@ namespace kd_aspmvc.Controllers
         //    return View();
         //}
         //[HttpPost, ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Upload(HttpPostedFileBase stream, string name)
+        //public ActionResult Upload(HttpPostedFileBase stream, string name)
         //{
-        //    if (stream!=null)
+        //    if (stream != null)
         //    {
-        //        var id = await _store.SaveImage(stream.InputStream, name);
+        //        var id = _store.SaveImage(stream.InputStream);
         //        return RedirectToAction("Show", new { id = id });
         //    }
         //    return View();
@@ -68,6 +68,11 @@ namespace kd_aspmvc.Controllers
             }
             return Json(images,JsonRequestBehavior.AllowGet);
         }
-        
+        public ActionResult EditBlock()
+        {
+            return PartialView();
+        }
+
+
     }
 }

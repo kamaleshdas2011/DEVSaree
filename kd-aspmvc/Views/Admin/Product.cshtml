@@ -1,0 +1,109 @@
+﻿<div>
+    <h2>{{pagename}}</h2>
+    <div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                
+                <label class="control-label col-md-2">Name</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="product_name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Description</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="product_description" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Select Product type</label>
+                <div class="col-md-10">
+                    <select ng-model="selectedProductType" ng-options="x.type_name for x in producttypes" class="form-control"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Unit</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="unit" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Price per unit</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="price_per_unit" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Images in comma seperated form</label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="all_image_ids" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Select preview image</label>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="col-md-2" ng-repeat="img in allImages">
+                            <div ng-class="{'imgHoverBorder':$index == hoverImage}" class="figure thumbnail show-image"
+                                 ng-click="onSelect($index, img)">
+                                <p>
+                                    <img src="{{img.ImageLocation}}"
+                                         width="136" height="200"
+                                         alt="{{img.Caption}}">
+                                <p>
+                                    {{img.Id}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="button" value="Add" ng-click="AddProduct()" class="btn-lg btn-primary" />
+                </div>
+            </div>
+            
+        </form>
+    </div>
+    <div>
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>
+                    Name
+                </th>
+                <th>Description</th>
+                <th>Product type</th>
+                <th>Price</th>
+                <th>Images</th>
+                <th>Preview image</th>
+                <th></th>
+            </tr>
+
+            <tr ng-repeat="prod in product">
+                <td>
+                    {{$index + 1}}
+                </td>
+                <td>
+                    {{prod.product_name}}
+                </td>
+                <td>
+                    {{prod.product_description}}
+                </td>
+                <td>{{prod.product_type_id}}</td>
+                <td>{{prod.price_per_unit}}</td>
+                <td>{{prod.all_image_ids}}</td>
+                <td>{{prod.PreviewImageId}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="EditProduct(prod)">Edit</button>
+                    <button class="btn btn-danger" ng-click="Delete(prod)">Delete</button>
+                </td>
+
+            </tr>
+
+        </table>
+    </div>
+    {{error}}
+</div>
+
+

@@ -1104,6 +1104,8 @@
     <Content Include="Views\Product\ProductDetails.cshtml" />
     <Content Include="Views\Image\ModalImage.cshtml" />
     <Content Include="Views\Admin\UploadImage.cshtml" />
+    <Content Include="Views\Image\EditBlock.cshtml" />
+    <Content Include="Views\Admin\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -28,5 +28,6 @@ namespace DataModel
         public DbSet<Shipment_type> Shipment_type { get; set; }
         public DbSet<Status_catalog> Status_catalog { get; set; }
         public DbSet<Stock> Stocks { get; set; }
+        public DbSet<Vendor> Vendor { get; set; }
     }
 }

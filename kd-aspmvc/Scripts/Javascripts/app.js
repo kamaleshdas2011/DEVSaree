@@ -25,6 +25,10 @@
             .when("/contact", {
                 templateUrl: "/Home/Contact",
             })
+            .when("/product", {
+                templateUrl: "/Admin/Product",
+                controller: "ProductController"
+            })
             .otherwise({ redirectTo: "/" })
         $locationProvider.html5Mode(false).hashPrefix('!'); // This is for Hashbang Mode
     })   

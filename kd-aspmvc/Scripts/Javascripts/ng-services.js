@@ -1,12 +1,5 @@
 ﻿(function () {
     var FeaturedItems = function ($http) {
-       
-        //var getFeaturedItems = function () {
-        //    return $http.get("/Image/GetFeaturedItems")
-        //        .then(function (response) {
-        //            return response.data
-        //        });
-        //}
         var getAllImages = function () {
             return $http.get("/Image/GetAllImages")
                 .then(function (response) {
@@ -14,9 +7,9 @@
                 });
         }
         var getCreateData = function () {
-            return $http.get("/Sarees/GetCreateData")
+            return $http.get("/Admin/GetCreateData")
                 .then(function (response) {
-                    return { materials: response.data.Materials, colours: response.data.Colours };
+                    return { materials: response.data.Materials, colours: response.data.Colours, producttypes: response.data.ProductType };
                 });
         }
         return {
@@ -45,13 +38,12 @@
                 url: url,
                 data: data,
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': undefined
                 }
             };
-            return $http.post(url, data).then(
-                function (response) {
-                    return response.data;
-                })
+            return $http(request).then(function (response) {
+                return response.data;
+            });
         }
         return {
             postResponse: uploadFiles

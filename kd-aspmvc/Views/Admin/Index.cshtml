@@ -3,7 +3,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div ng-controller="IndexController">
+<script src="~/Scripts/Javascripts/ProductController.js"></script>
+<div ng-controller="IndexController" id="mainAdmin">
     <h1>{{pagename}}</h1>
     <br />
     <a href="#!/material">Material</a>
@@ -13,6 +14,8 @@
     <a href="#!/uploadimage">Upload Image</a>
     <br />
     <a href="#!/image">Add Image</a>
+    <br />
+    <a href="#!/product">Product</a>
     <br />
     <div ng-view></div> 
 </div>

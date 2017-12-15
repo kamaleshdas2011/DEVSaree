@@ -18,13 +18,15 @@ namespace kd_aspmvc.AdminHelper
         {
             _client = new CloudBlobClient(_baseuri, new StorageCredentials("kdaspmvcstore", "mrwZQytWB/Abilsaca975Z6JVaIxV5NEM0XohvCUv8KIRJAkHmGE1jGZJ1Ym4Dq+UpevknvW686mQxckT/ji9Q=="));
         }
-        public string SaveImage(Stream stream)
+        public void SaveImage(List<Stream> stream)
         {
-            var id = Guid.NewGuid().ToString();
             var container = _client.GetContainerReference("images");
-            var blob = container.GetBlockBlobReference(id);
-            blob.UploadFromStreamAsync(stream);
-            return id;
+            foreach (var item in stream)
+            {
+                var id = Guid.NewGuid().ToString();
+                var blob = container.GetBlockBlobReference(id);
+                blob.UploadFromStream(item);
+            } 
         }
         public Uri UriFor(string id)
         {
@@ -94,5 +96,20 @@ namespace kd_aspmvc.AdminHelper
             }
             return allImages;
         }
+        public void DeleteUpdateBlobImage(string id, string action, Stream stream)
+        {
+            var container = _client.GetContainerReference("images");
+            var blob = container.GetBlockBlobReference(id);
+            if (action == IOActions.Delete.ToString())
+            {
+                blob.Delete();
+            }
+            else if(action == IOActions.Update.ToString() && stream!=null)
+            {
+                blob.Delete();
+                blob.UploadFromStream(stream);
+            }
+        }
+        
     }
 }

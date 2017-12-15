@@ -23,7 +23,7 @@
             };
             var data = { Name: $scope.name, Description: $scope.description };
             SubmitForm.postResponse(data, url).then(onPost, onError);
-            
+
             $scope.name = null;
             $scope.description = null;
         }
@@ -47,12 +47,12 @@
             };
             var data = { Name: $scope.name, Description: $scope.description };
             SubmitForm.postResponse(data, url).then(onPost, onError);
-            
+
             $scope.name = null;
             $scope.description = null;
         }
     }
-    var AddImageController = function ($scope, FeaturedItems, SubmitForm, AllBlobImages, UploadFiles) {
+    var AddImageController = function ($scope, FeaturedItems, SubmitForm, AllBlobImages, UploadFiles, $http) {
         $scope.pagename = "Add/update images.";
         var onAllFormData = function (data) {
             $scope.image = data;
@@ -104,15 +104,12 @@
             var url = '/Admin/UploadImages';
             var onPost = function (data) {
                 $scope.postResponse = data;
-                FeaturedItems.getAllImages().then(onAllFormData, onError);
+                AllBlobImages.getAllBlobImages().then(onAllImages, onError);
             };
-            //var data = { Name: $scope.name, Caption: $scope.caption, ImageUri: $scope.selectedImage.ImageUri, BaseColour: $scope.basecolour };
             UploadFiles.postResponse(formdata, url).then(onPost, onError);
-        }
-    }
-
+        };
         
-
+    }
     app.directive('ngFiles', ['$parse', function ($parse) {
 
             function fn_link(scope, element, attrs) {
@@ -125,7 +122,52 @@
             return {
                 link: fn_link
             }
-        }])
+    }])
+
+    
+
+
+    app.directive('editBlock', ['SubmitForm', 'AllBlobImages', function (SubmitForm, AllBlobImages) {
+
+        return {
+            templateUrl: "/Image/EditBlock",
+            restrict: "E",
+            scope: true,
+            controller: function ($scope, SubmitForm, AllBlobImages) {
+                var onPost = function (data) {
+                    AllBlobImages.getAllBlobImages().then(onAllImages, onError);
+                };
+                var onAllImages = function (data) {
+                    if (!$scope.$$phase) {
+                        $scope.$apply(function () {
+                            $scope.images = data;
+                        });
+                    }
+                   
+                };
+                var onError = function (data) {
+                    $scope.error = data;
+                };
+                $scope.showConfirm = false;
+                $scope.Delete = function (id) {
+                    $scope.showDConfirm = false;
+                    $scope.showEConfirm = false;
+                    var data = { blobid: id };
+                    SubmitForm.postResponse(data, "/Admin/DeleteBlobImage").then(onPost, onError);
+                }
+                //$scope.Edit = function (id) {
+                //    $scope.showConfirm = false;
+                //    $scope.UploadImage();
+                //    //var data = { blobid: id };
+                //    //SubmitForm.postResponse(data, url).then(onPost, onError);
+                //}
+            },
+            //link: function (scope, SubmitForm, AllBlobImages) {
+                
+            //},
+
+        }
+    }])
     app.controller("MaterialController", MaterialController);
     app.controller("IndexController", IndexController);
     app.controller("ColourController", ColourController);
